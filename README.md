@@ -3,9 +3,9 @@ The calculator web app is a simple frontend, responsive calculator built using *
 
 ---
 
-## 📸 Screenshot
+## 📸 Calculator Screenshot
 
-![Calculator Screenshot](../assets/cal-screenshot.png)  
+![Calculator Screenshot](./assets/cal-screenshot.png)  
 
 
 ---
