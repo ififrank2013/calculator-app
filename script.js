@@ -15,7 +15,7 @@ function updateDisplay(value) {
   display.textContent = value;
 }
 
-
+// Function to evaluate operations
 function evaluateExpression(expression) {
   try {
     const result = eval(expression.replace(/×/g, '*').replace(/÷/g, '/').replace(/\^/g, '**'));
@@ -25,7 +25,7 @@ function evaluateExpression(expression) {
   }
 }
 
-
+// Function to handle history generation
 function updateHistory(expression, result) {
   history.push(`${expression} = ${result}`);
   historyEl.innerHTML = history.slice(-5).map(item => `<div>${item}</div>`).join("");
@@ -53,7 +53,7 @@ buttons.forEach(button => {
     }
 
     else if (button.classList.contains("equal")) {
-      if (currentInput.trim() === "") return; // <-- Preventing empty evaluation and returning undefined when there is no action on the display and equal to is clicked.
+      if (currentInput.trim() === "") return; // Prevent empty evaluation and returning of undefined when there is no action on the display and equal to is clicked.
 
       
       const expression = currentInput;
@@ -95,7 +95,7 @@ clearHistoryBtn.addEventListener("click", () => {
   historyEl.innerHTML = "";
 });
 
-// Allowing keyboard input
+// Allow keyboard input
 document.addEventListener("keydown", (e) => {
   const key = e.key;
 
@@ -103,7 +103,7 @@ document.addEventListener("keydown", (e) => {
     currentInput += key;
     updateDisplay(currentInput);
   } else if (key === "Enter") {
-      if (currentInput.trim() === "") return;  // <-- Skip logging empty inputs in the history.
+      if (currentInput.trim() === "") return;  // Skip logging empty inputs in the history.
 
       const expression = currentInput;
       const result = evaluateExpression(expression);
