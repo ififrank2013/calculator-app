@@ -50,4 +50,4 @@ You can view the calculator by opening the `index.html` file directly in any web
 - JavaScript – DOM manipulation and logic
 
 
-Author: Ifeanyi Ike.
+Author: Babatunde Ojo.
