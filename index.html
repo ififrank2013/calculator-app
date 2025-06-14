@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Calculator App</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
   <div class="calculator">
@@ -38,14 +38,17 @@
       <button class="btn backspace">
         <img src="./assets/backspace.png" alt="Backspace" class="icon" />
       </button>
+      <button class="btn clear" style="background: red; width: 55px; height: 50px;;" title="Clear current input">C</button>
       <button class="btn equal">＝</button>
-      <button class="btn" style="background: #ff4d4f;">C</button>
     </div>
-
-    <div class="history hidden" id="history">
-      <div id="history-content"></div>
-      <button id="clear-history">Clear History</button>
-    </div>
+  </br>
+      <div class="history hidden" id="history">
+          <div class="history-header">
+              <div class="history-title">History</div>
+              <button id="clear-history">Clear history</button>
+          </div>
+          <div id="history-content"></div>
+      </div>
   </div>
 
   <script src="script.js"></script>
