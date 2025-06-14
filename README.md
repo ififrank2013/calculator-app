@@ -38,9 +38,11 @@ calculator-app/
 You can view the calculator by opening the `index.html` file directly in any web browser.
 
 ### Or, if running locally with a server (optional):
-1. Clone or download the project
-2. Navigate to the folder in your terminal
-3. Run a local server (e.g., with VS Code Live Server or Python):
+1. Clone or download this project
+2. Navigate to the folder in your terminal:
+     ```bash
+     cd calculator-app/
+5. Run a local server (e.g., with VS Code Live Server or Python):
 
 ## Technologies Used
 - HTML – Semantic structure
