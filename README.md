@@ -43,7 +43,7 @@ You can view the calculator by opening the `index.html` file directly in any web
 1. Clone or download this project
 2. Navigate to the folder in your terminal:
      ```bash
-     cd calculator-app/
+     cd calculator-app
 5. Run a local server (e.g., with VS Code Live Server or Python):
 
 ## Technologies Used
