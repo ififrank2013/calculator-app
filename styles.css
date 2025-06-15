@@ -38,7 +38,7 @@ body {
 
 #toggle-history:hover::after {
   content: "View result history";
-  position: absolute;
+  position: sticky;
   top: 30px;
   right: 10px;
   font-size: 0.75rem;

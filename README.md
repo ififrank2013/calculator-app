@@ -5,8 +5,10 @@ The calculator web app is a simple frontend, responsive calculator built using *
 
 ## 📸 Calculator Screenshot
 
-![Calculator Screenshot](./assets/cal-screenshot.png)  
-
+<p float="left">
+  <img src="./assets/cal-screenshot.png" width="400" />
+  <img src="./assets/cal-screenshot-2.png" width="400" /> 
+</p>
 
 ---
 
