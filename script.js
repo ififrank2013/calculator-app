@@ -25,6 +25,12 @@ function evaluateExpression(expression) {
   }
 }
 
+// Calculate percentages
+function calculatePercentage(value) {
+  const num = parseFloat(value);
+  return isNaN(num) ? "Error" : (num / 100).toString();
+}
+
 // Function to handle history generation
 function updateHistory(expression, result) {
   history.push(`${expression} = ${result}`);
@@ -47,8 +53,18 @@ buttons.forEach(button => {
     }
 
     else if (button.classList.contains("operator")) {
-      if (justEvaluated) justEvaluated = false; // allow continuation
-      currentInput += value;
+      if (justEvaluated) justEvaluated = false;
+      if (value === '%') {
+        const result = calculatePercentage(currentInput);
+        if (result !== "Error") {
+          currentInput = result;
+          updateHistory(currentInput + '%', result);
+        } else {
+          currentInput = "";
+        }
+      } else {
+        currentInput += value;
+      }
       updateDisplay(currentInput);
     }
 
@@ -80,9 +96,9 @@ buttons.forEach(button => {
       currentInput = currentInput.slice(0, -1);
       updateDisplay(currentInput);
     }
+    
   });
 });
-
 
 // Adding a toggle history button
 toggleHistoryBtn.addEventListener("click", () => {
@@ -95,30 +111,65 @@ clearHistoryBtn.addEventListener("click", () => {
   historyEl.innerHTML = "";
 });
 
+
+
 // Allow keyboard input
 document.addEventListener("keydown", (e) => {
   const key = e.key;
 
-  if (!isNaN(key) || ["+", "-", "*", "/", ".", "^", "%"].includes(key)) {
-    currentInput += key;
+  
+  if (!isNaN(key) || ["+", "-", "*", "/", ".", "^"].includes(key)) {
+    if (justEvaluated && !isNaN(key)) {
+      currentInput = key; // Start new input if last operation was evaluated
+    } else {
+      currentInput += key;
+    }
+    justEvaluated = false;
     updateDisplay(currentInput);
-  } else if (key === "Enter") {
-      if (currentInput.trim() === "") return;  // Skip logging empty inputs in the history.
+  } 
+  else if (key === "%") {
+    const result = calculatePercentage(currentInput);
+    if (result !== "Error") {
+      currentInput = result;
+      updateHistory(currentInput + '%', result);
+      updateDisplay(currentInput);
+      justEvaluated = true;
+    }
+  } 
+  else if (key === "Enter") {
+    if (currentInput.trim() === "") return;
 
-      const expression = currentInput;
-      const result = evaluateExpression(expression);
-      updateDisplay(result);
-      if (result !== "Error") {
-        updateHistory(expression, result);
-        currentInput = result.toString();
-      } else {
-        currentInput = "";
-      }
-  } else if (key === "Backspace") {
+    const expression = currentInput;
+    const result = evaluateExpression(expression);
+
+    // updateDisplay(result) for keyboard events;
+    if (result !== "Error") {
+      updateHistory(expression, result);
+      currentInput = result.toString();
+      justEvaluated = true;
+      updateDisplay(currentInput);
+    } else {
+      currentInput = "";
+      justEvaluated = false;
+      updateDisplay("Error");
+    }
+    e.preventDefault(); // Prevent default Enter behavior
+
+  } 
+  else if (key === "Backspace") {
     currentInput = currentInput.slice(0, -1);
     updateDisplay(currentInput);
-  } else if (key.toLowerCase() === "c") {
+    justEvaluated = false;
+  } 
+  else if (key.toLowerCase() === "c") {
     currentInput = "";
     updateDisplay(currentInput);
+    justEvaluated = false;
   }
 });
+
+
+
+
+
+
