@@ -15,10 +15,10 @@ The calculator web app is a simple frontend, responsive calculator built using *
 ## ✅ Features
 
 - 🔢 Basic arithmetic operations: Addition, Subtraction, Multiplication, Division
-- 🧠 **Calculation History** (with toggle and clear options)
-- 🎹 **Keyboard Input Support**
+- 🧠 Calculation History (with toggle and clear options)
+- 🎹 Keyboard Input Support
 - 🔙 Backspace Button
-- C Clear Button (C)
+- (C) Clear Button
 - 👁️ History toggle with icon
 - 🖱️ Hover effects for all interactive elements
 - 📱 Fully responsive design (works on mobile and desktop)
@@ -52,4 +52,4 @@ You can view the calculator by opening the `index.html` file directly in any web
 - JavaScript – DOM manipulation and logic
 
 
-Author: Ifeanyi Ike.
+- ** Author: Ifeanyi Ike.
